@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Natural Toothpaste Recipe</title>
+    <style>
+        :root {
+            --primary-color: #e9b44c; /* Turmeric yellow */
+            --secondary-color: #9b4f0f; /* Ginger orange */
+            --accent-color: #5c4033; /* Clay brown */
+            --light-color: #f5f5dc; /* Light beige */
+            --text-color: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            background-color: var(--light-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header h1 {
+            font-size: 2.5em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.2em;
+            font-style: italic;
+            position: relative;
+            z-index: 2;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        .header-bg::before {
+            content: "🦷";
+            position: absolute;
+            font-size: 100px;
+            top: -20px;
+            left: 50px;
+        }
+        
+        .header-bg::after {
+            content: "🌿";
+            position: absolute;
+            font-size: 100px;
+            bottom: -20px;
+            right: 50px;
+        }
+        
+        .audience-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .audience-card {
+            flex-basis: 30%;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .audience-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .audience-card h3 {
+            color: var(--secondary-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .audience-card h3 span {
+            margin-right: 10px;
+            font-size: 1.5em;
+        }
+        
+        .audience-card p {
+            font-size: 0.95em;
+        }
+        
+        .ingredients-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .ingredients-section h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .ingredients-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        
+        .ingredients-table th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        
+        .ingredients-table tr:nth-child(even) {
+            background-color: #f9f3e5;
+        }
+        
+        .ingredients-table td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .ingredients-table td:first-child {
+            font-weight: bold;
+        }
+        
+        .steps-section {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .steps-section h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .steps-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        
+        .step-card {
+            flex-basis: 22%;
+            position: relative;
+            background-color: var(--light-color);
+            border-radius: 10px;
+            padding: 30px 15px 15px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+        
+        .science-section {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .science-card {
+            flex-basis: 30%;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            border-top: 5px solid var(--secondary-color);
+        }
+        
+        .science-card h3 {
+            color: var(--secondary-color);
+            text-align: center;
+        }
+        
+        .motivation-section {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 30px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        
+        .motivation-section h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .motivation-quotes {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        
+        .quote-card {
+            flex-basis: 30%;
+            background-color: white;
+            color: var(--text-color);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .quote-card::before {
+            content: """;
+            position: absolute;
+            top: 5px;
+            left: 10px;
+            font-size: 3em;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
+        
+        .safety-section {
+            background-color: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 30px 0;
+            border-radius: 5px;
+        }
+        
+        .safety-section h2 {
+            color: #856404;
+            margin-top: 0;
+        }
+        
+        .safety-tips {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .safety-tips li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .safety-tips li::before {
+            content: "⚠️";
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+            background-color: var(--accent-color);
+            color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 0 0 10px 10px;
+            margin-top: 30px;
+        }
+        
+        .hashtag {
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+        
+        @media (max-width: 768px) {
+            .audience-card, .science-card, .quote-card {
+                flex-basis: 100%;
+            }
+            
+            .step-card {
+                flex-basis: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-bg"></div>
+            <h1>🌿 DIY Natural Toothpaste 🦷</h1>
+            <p>Tradition Meets Science for a Healthier Smile!</p>
+        </header>
+        
+        <section class="audience-section">
+            <div class="audience-card">
+                <h3><span>🧪</span> Students</h3>
+                <p>Dive into an exciting blend of science and culture while creating something practical! Perfect for hands-on learning about chemistry, botany, and traditional practices.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3><span>👨‍👩‍👧‍👦</span> Housewives</h3>
+                <p>Create safe, affordable, and eco-friendly oral care for your family. Reduce plastic waste while embracing traditional wisdom and natural ingredients.</p>
+            </div>
+            
+            <div class="audience-card">
+                <h3><span>💼</span> Entrepreneurs</h3>
+                <p>Discover a low-cost startup opportunity with strong cultural appeal. Tap into growing markets for natural, traditional, and sustainable personal care products.</p>
+            </div>
+        </section>
+        
+        <section class="ingredients-section">
+            <h2>✨ Key Ingredients: Tradition & Science Backed</h2>
+            <table class="ingredients-table">
+                <thead>
+                    <tr>
+                        <th>Ingredient</th>
+                        <th>Why It Works</th>
+                        <th>Fun Fact!</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Baking Soda</td>
+                        <td>Mild abrasive, balances pH</td>
+                        <td>Used by ancient Indonesians for cleaning!</td>
+                    </tr>
+                    <tr>
+                        <td>Coconut Oil</td>
+                        <td>Antimicrobial, moisturizes gums</td>
+                        <td>A staple in traditional oral care!</td>
+                    </tr>
+                    <tr>
+                        <td>Clove Powder</td>
+                        <td>Kills bad bacteria (fights plaque!)</td>
+                        <td>Syzygium aromaticum = "nature's antibiotic"</td>
+                    </tr>
+                    <tr>
+                        <td>Ginger Extract</td>
+                        <td>Boosts saliva, freshens breath</td>
+                        <td>Zingiber officinale = ancient teeth whitener</td>
+                    </tr>
+                    <tr>
+                        <td>Turmeric</td>
+                        <td>Anti-inflammatory, stains teeth <i>naturally</i></td>
+                        <td>Curcuma longa = "golden healer" of Indonesia</td>
+                    </tr>
+                    <tr>
+                        <td>Kaolin Clay</td>
+                        <td>Smooth texture, gentle exfoliant</td>
+                        <td>Used in ancient rituals for purity!</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+        
+        <section class="steps-section">
+            <h2>📝 Simple Steps to Make</h2>
+            <div class="steps-container">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <p><strong>Mix Base</strong></p>
+                    <p>Combine 2 tbsp baking soda + 1 tbsp coconut oil.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <p><strong>Add Power</strong></p>
+                    <p>Stir in ½ tsp clove powder, ½ tsp ginger extract, ¼ tsp turmeric.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <p><strong>Texture Magic</strong></p>
+                    <p>Add kaolin clay (1–2 tbsp) until desired consistency.</p>
+                </div>
+                
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <p><strong>Store</strong></p>
+                    <p>In an airtight jar. Use daily!</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="science-section">
+            <div class="science-card">
+                <h3>Plaque Fighter</h3>
+                <p>Clove effectively kills Streptococcus mutans, the primary bacteria responsible for plaque formation and tooth decay. This natural antimicrobial property mirrors traditional wisdom with scientific backing.</p>
+            </div>
+            
+            <div class="science-card">
+                <h3>Fresh Breath</h3>
+                <p>Ginger stimulates saliva production, which naturally cleanses the mouth and freshens breath. This mimics the effect of ancient chewing practices used across Indonesia for centuries.</p>
+            </div>
+            
+            <div class="science-card">
+                <h3>Gentle Care</h3>
+                <p>Unlike commercial toothpastes with harsh chemicals, this recipe uses only nature's tools for oral care. The combination provides effective cleaning without irritation or environmental damage.</p>
+            </div>
+        </section>
+        
+        <section class="motivation-section">
+            <h2>🚀 Motivation for Each Audience</h2>
+            <div class="motivation-quotes">
+                <div class="quote-card">
+                    <p><strong>Students:</strong> "Be a scientist! Test this recipe and learn how plants protect your smile. Document your observations and share your discoveries!"</p>
+                </div>
+                
+                <div class="quote-card">
+                    <p><strong>Housewives:</strong> "Save money, reduce plastic waste, and care for your family naturally. One batch costs a fraction of store-bought and lasts for weeks!"</p>
+                </div>
+                
+                <div class="quote-card">
+                    <p><strong>Entrepreneurs:</strong> "Turn tradition into profit! Sell 'Golden Smile' toothpaste at local markets. Start small, build a brand focused on heritage and sustainability."</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="safety-section">
+            <h2>⚠️ Safety Tips</h2>
+            <ul class="safety-tips">
+                <li>Always test for allergies (especially with strong herbs like neem).</li>
+                <li>Avoid overuse of tooth-sharpening traditions (stick to safe practices!).</li>
+                <li>Keep away from children unless supervised.</li>
+                <li>Consult a dentist if you have specific oral health concerns.</li>
+            </ul>
+        </section>
+        
+        <footer>
+            <p class="hashtag">#NaturalSmileRevolution</p>
+            <p>Try it! Share your results and join the movement!</p>
+        </footer>
+    </div>
+</body>
+</html>
